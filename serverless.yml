@@ -1,9 +1,13 @@
 # serverless.yml
 
 service: apollo-lambda
+
+plugins:
+  - serverless-plugin-typescript
 provider:
   name: aws
   runtime: nodejs14.x
+  region: ap-southeast-2
 functions:
   graphql:
     # this is formatted as <FILENAME>.<HANDLER>
