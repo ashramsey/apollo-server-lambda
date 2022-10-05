@@ -4,3 +4,5 @@ dist
 .netlify
 tsconfig.tsbuildinfo
 .vscode
+.build
+.DS_Store
