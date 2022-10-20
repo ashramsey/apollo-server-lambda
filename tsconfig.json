@@ -1,5 +1,15 @@
 {
   "compilerOptions": {
+    "allowJs": false,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "lib": ["es2018"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "esnext"
   }
 }
