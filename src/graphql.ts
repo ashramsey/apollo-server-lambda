@@ -1,6 +1,6 @@
 // import { Server } from './Server'
-import { PubSub, Server, withFilter, DynamoDBEventStore, DynamoDBSubscriptionManager, DynamoDBConnectionManager, DynamoDBEventProcessor } from '/Users/ash/dev/aws-lambda-graphql/packages/aws-lambda-graphql'
-import { MemoryEventProcessor } from '/Users/ash/dev/aws-lambda-graphql/packages/aws-lambda-graphql/dist/MemoryEventProcessor'
+import { PubSub, Server, withFilter, DynamoDBEventStore, DynamoDBSubscriptionManager, DynamoDBConnectionManager, DynamoDBEventProcessor } from '/Users/ash/dev/aws-lambda-graphql-og/packages/aws-lambda-graphql'
+import { MemoryEventProcessor } from '/Users/ash/dev/aws-lambda-graphql-og/packages/aws-lambda-graphql/dist/MemoryEventProcessor'
 import {
   ApolloServerPluginLandingPageLocalDefault
 } from 'apollo-server-core'
