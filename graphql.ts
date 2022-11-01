@@ -7,15 +7,27 @@ import {
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = gql`
+  type Hello {
+    value: String
+  }
+
   type Query {
-    hello: String
+    hello(name: String): Hello
   }
 `;
 
 // Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    hello: () => 'Hello world!',
+    hello: (_, args) => {
+      let value;
+      if (args.name) {
+        value = `Hello ${args.name}, nice to meet you!`
+      } else {
+        value = `Hello, nice to meet you!`
+      }
+      return { value }
+    }
   },
 };
 
@@ -31,19 +43,3 @@ const server = new ApolloServer({
 
 const graphqlHandler = server.createHandler();
 export { graphqlHandler }
-
-// import { Handler, Context, Callback } from 'aws-lambda';
-// interface HelloResponse {
-//    statusCode: number;
-//    body: string;
-// }
-// const graphqlHandler: Handler = (event: any, context: Context, callback: Callback) => {
-//    const response: HelloResponse = {
-//      statusCode: 200,
-//      body: JSON.stringify({
-//        message: Math.floor(Math.random() * 10)
-//      })
-//    };
-//    callback(undefined, response);
-// };
-// export { graphqlHandler }
