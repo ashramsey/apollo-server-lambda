@@ -12,7 +12,7 @@ provider:
 functions:
   graphql:
     # this is formatted as <FILENAME>.<HANDLER>
-    handler: graphql.graphqlHandler
+    handler: src/handler.graphqlHandler
     events:
     - http:
         path: /foo

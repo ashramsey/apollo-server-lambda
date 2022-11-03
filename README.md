@@ -16,8 +16,9 @@ run offline and post queries via Insomnia or curl:
   --header 'Content-Type: application/json' \
   --cookie '__profilin=p%253Dt; JSESSIONID=EA0B2ED954EC39BE2C489125CC24043B' \
   --data '{
-  "query": "query GreetingQuery ($arg1: String) { hello (name: $arg1) { value } }",
-  "operationName": "GreetingQuery",
-  "variables": { "arg1": "Timothy" }
-}
-'
+	"query": "query GreetingQuery ($arg1: String) { hello (name: $arg1) { value } }",
+	"operationName": "GreetingQuery",
+	"variables": {
+		"arg1": "Timothy"
+	}
+}'
