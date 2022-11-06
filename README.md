@@ -22,3 +22,5 @@ run offline and post queries via Insomnia or curl:
 		"arg1": "Timothy"
 	}
 }'
+
+foo
