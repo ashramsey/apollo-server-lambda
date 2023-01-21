@@ -5,7 +5,9 @@ import { SchemaDirectiveVisitor } from "@graphql-tools/utils"
 import * as utils from './graphql-modules/api/Utils'
 
 const app = createApplication({
-  modules: [utils.graphqlModule]
+  modules: [
+    utils.graphqlModule,
+  ]
 })
 
 SchemaDirectiveVisitor.visitSchemaDirectives(
@@ -15,6 +17,7 @@ SchemaDirectiveVisitor.visitSchemaDirectives(
 
 const server = new ApolloServer({
   schema: app.createSchemaForApollo(),
+  context: {foo: 'bar'},
   csrfPrevention: true,
   cache: 'bounded',
   plugins: [
