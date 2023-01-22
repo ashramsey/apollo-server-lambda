@@ -4,20 +4,37 @@ service: apollo-lambda
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-offline
+custom:
+  serverless-offline:
+    httpPort: 4000
+    websocketPort: 5001
+    noPrependStageInUrl: true
+  cors:
+    origin:
+      development: 'http://localhost:3000/'
 provider:
   name: aws
   runtime: nodejs14.x
   region: ap-southeast-2
+  stage: ${opt:stage, 'development'}
 functions:
   graphql:
-    # this is formatted as <FILENAME>.<HANDLER>
-    handler: graphql.graphqlHandler
+    handler: src/handler.graphqlHandler
     events:
     - http:
-        path: /
-        method: post
-        cors: true
-    - http:
-        path: /
-        method: get
-        cors: true
+        path: graphql
+        method: any
+        cors:
+          origin: ${self:custom.cors.origin.${self:provider.stage}}
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - Set-Cookie
+            - X-Client-Version
+            - X-Forwarded-*
+          allowCredentials: true
